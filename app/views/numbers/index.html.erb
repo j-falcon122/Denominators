@@ -1,25 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Numbers</h1>
+<h1>The Denominator</h1>
+  <h3>Input a Number</h3>
+<!-- <form>
+  <input type="number" name="value" value="value">
+  <button type="submit">submit</button>
+</form> -->
 
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<%= form_for(Number.new) do |f| %>
+  <%= number_field_tag(:number, :value, step: 0.01, min: 0.00,  :required => true) %>
+  <%= submit_tag "submit" %>
 
-  <tbody>
-    <% @numbers.each do |number| %>
-      <tr>
-        <td><%= link_to 'Show', number %></td>
-        <td><%= link_to 'Edit', edit_number_path(number) %></td>
-        <td><%= link_to 'Destroy', number, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
+<% end %>
+<h4> Will return the least amount of bills and/or coins to reach that amount. <h4>
 <br>
 
-<%= link_to 'New Number', new_number_path %>
+

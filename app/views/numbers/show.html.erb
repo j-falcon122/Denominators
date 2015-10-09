@@ -1,4 +1,22 @@
-<p id="notice"><%= notice %></p>
+<h3>You entered </h3>
+<h2><%= @number.value %></h2>
 
-<%= link_to 'Edit', edit_number_path(@number) %> |
-<%= link_to 'Back', numbers_path %>
+	<% number_array = @number.split_number(@number.value) %>
+	<% @bills = number_array[0].to_i %>
+	<% @cents = number_array[1].to_i %>
+	
+	<% bills_hash = @number.check_bills(@bills).select {|k, v| v > 0} %>
+	<% bills_hash.each do |k, v| %> 
+		<li> <%= v %>x <%= k %>-dollar bills</li>
+
+	<% end %>
+	<% coins_hash = @number.check_cents(@cents).select {|k, v| v > 0} %>
+	<% coins_hash.each do |k, v| %> 
+		<li> <%= v %>x <%= k%>-cents coins</li>
+	<% end %>
+
+
+<br>
+<%= link_to 'New Number', "/" %>
+
+
