@@ -12,7 +12,6 @@ class Number < ActiveRecord::Base
 				bill_count = bills / each_amount 
 				bills = bills % each_amount
 				bills_included[each_amount] = bill_count
-				# binding.pry	
 			end
 		end
 		bills_included
@@ -27,7 +26,6 @@ class Number < ActiveRecord::Base
 				coin_count = cents / each_coin 
 				cents = cents % each_coin
 				coins_included[each_coin] = coin_count
-				# binding.pry
 			end		
 		end
 	coins_included
